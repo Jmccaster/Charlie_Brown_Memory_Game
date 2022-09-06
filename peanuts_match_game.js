@@ -65,6 +65,14 @@ function startGame() {
   }
   console.log(board);
   //Create a function that will let you see cards before the game starts here:
+  setTimeout(concealCards, 1000);
 }
 
 //Create the back of the cards
+function concealCards() {
+  for (let r = 0; r < rows; r++)
+    for (let c = 0; c < columns; c++) {
+      let card = document.getElementById(r.toString() + "-" + c.toString());
+      card.src = "back.png";
+    }
+}
