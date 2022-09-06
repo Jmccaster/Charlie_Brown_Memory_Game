@@ -1,0 +1,19 @@
+body {
+  text-align: center;
+}
+
+#board {
+  height: 532px;
+  width: 475px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: brown;
+  border: 10px solid lightgray;
+}
+
+.card {
+  height: 128px;
+  width: 90px;
+  margin: 2.5px;
+}
