@@ -3,18 +3,19 @@ body {
 }
 
 #board {
-  height: 532px;
-  width: 475px;
+  height: 550px;
+  width: 625px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   background-color: brown;
   border: 10px solid lightgray;
 }
 
 .card {
-  height: 128px;
-  width: 90px;
+  height: 130px;
+  width: 120px;
   margin: 2.5px;
 }
 

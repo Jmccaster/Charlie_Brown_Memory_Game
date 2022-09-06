@@ -44,3 +44,27 @@ function shuffleCards() {
   }
   console.log(cardStack);
 }
+
+function startGame() {
+  // Will create the 4x5 board
+  for (let r = 0; r < rows; r++) {
+    let row = [];
+    for (let c = 0; c < columns; c++) {
+      let cardPic = cardStack.pop();
+      row.push(cardPic);
+      // Create img tags for cards.
+      let card = document.createElement("img");
+      card.id = r.toString() + "-" + c.toString();
+      card.src = cardPic + ".png";
+      card.classList.add("card");
+      // Will create an event listener here to flip over a card by clicking on it here:
+
+      document.getElementById("board").append(card);
+    }
+    board.push(row);
+  }
+  console.log(board);
+  //Create a function that will let you see cards before the game starts here:
+}
+
+//Create the back of the cards
