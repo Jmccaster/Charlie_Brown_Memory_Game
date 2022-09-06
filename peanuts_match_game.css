@@ -1,21 +1,24 @@
 body {
+  background-image: url("/Background.png");
+  background-size: cover;
   text-align: center;
 }
 
 #board {
-  height: 550px;
-  width: 625px;
+  height: 530px;
+  width: 600px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: brown;
-  border: 10px solid lightgray;
+  background-color: whitesmoke;
+  border: 10px solid black;
 }
 
 .card {
-  height: 130px;
-  width: 120px;
+  border: solid black;
+  height: 120px;
+  width: 90px;
   margin: 2.5px;
 }
 

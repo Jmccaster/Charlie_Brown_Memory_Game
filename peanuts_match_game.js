@@ -25,6 +25,9 @@ let board = []; // Shows outlet of card placement.
 let rows = 4;
 let columns = 5;
 
+let card1Chosen;
+let card2Chosen;
+
 window.onload = function () {
   shuffleCards();
   startGame();
@@ -57,8 +60,8 @@ function startGame() {
       card.id = r.toString() + "-" + c.toString();
       card.src = cardPic + ".png";
       card.classList.add("card");
-      // Will create an event listener here to flip over a card by clicking on it here:
-
+      // Create an event listener here to flip over a card by clicking on it here:
+      card.addEventListener("click", chooseCard);
       document.getElementById("board").append(card);
     }
     board.push(row);
@@ -75,4 +78,40 @@ function concealCards() {
       let card = document.getElementById(r.toString() + "-" + c.toString());
       card.src = "back.png";
     }
+}
+
+function chooseCard() {
+  // Make sure card is facing down when selected.
+  if (this.src.includes("back")) {
+    if (!card1Chosen) {
+      card1Chosen = this;
+      // Selecting correct placement of card.
+      let coords = card1Chosen.id.split("-");
+      let r = parseInt(coords[0]);
+      let c = parseInt(coords[1]);
+
+      card1Chosen.src = board[r][c] + ".png";
+    } else if (!card2Chosen && this != card1Chosen) {
+      card2Chosen = this;
+
+      let coords = card2Chosen.id.split("-");
+      let r = parseInt(coords[0]);
+      let c = parseInt(coords[1]);
+
+      card2Chosen.src = board[r][c] + ".png";
+      setTimeout(update, 1000);
+    }
+  }
+}
+
+function update() {
+  //flips cards back over if they are not a match.
+  if (card1Chosen.src != card2Chosen.src) {
+    card1Chosen.src = "back.png";
+    card2Chosen.src = "back.png";
+    // player1Points += 1;
+    // document.getElementById("player1Points").innerText = player1Points;
+  }
+  card1Chosen = null;
+  card2Chosen = null;
 }
