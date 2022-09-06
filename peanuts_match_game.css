@@ -17,3 +17,7 @@ body {
   width: 90px;
   margin: 2.5px;
 }
+
+.score {
+  text-decoration: underline;
+}
