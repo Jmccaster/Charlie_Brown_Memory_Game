@@ -6,6 +6,9 @@ let currPlayer = playerOne;
 let player1Points = Number(
   document.getElementById("player1Points").textContent
 );
+let player2Points = Number(
+  document.getElementById("player2Points").textContent
+);
 
 // Setting up my cards
 let cardlist = [
@@ -108,13 +111,9 @@ function chooseCard() {
 }
 
 function update() {
+  // debugger;
   console.log(card1Chosen, card2Chosen);
-  //flips cards back over if they are not a match.
-  if (card1Chosen.src != card2Chosen.src) {
-    console.log("hello");
-    card1Chosen.src = "back.png";
-    card2Chosen.src = "back.png";
-  }
+  //Player One's turn
   if (currPlayer == playerOne && card1Chosen.src == card2Chosen.src) {
     currPlayer = playerOne;
     displayCurrPlayer.innerText = currPlayer;
@@ -124,7 +123,27 @@ function update() {
     console.log(currPlayer);
     currPlayer = playerTwo;
     displayCurrPlayer.innerText = currPlayer;
+    //flips cards back over if they are not a match.
+    card1Chosen.src = "back.png";
+    card2Chosen.src = "back.png";
   }
+  // Player Two's turn
+  else if (currPlayer == playerTwo && card1Chosen.src == card2Chosen.src) {
+    currPlayer = playerTwo;
+    displayCurrPlayer.innerText = currPlayer;
+    player2Points += 1;
+    document.getElementById("player2Points").textContent = player2Points;
+  } else if (currPlayer == playerTwo && card1Chosen.src != card2Chosen.src) {
+    console.log(currPlayer);
+    currPlayer = playerOne;
+    displayCurrPlayer.innerText = currPlayer;
+    //flips cards back over if they are not a match.
+    card1Chosen.src = "back.png";
+    card2Chosen.src = "back.png";
+    // card1Chosen = null;
+    // card2Chosen = null;
+  }
+  // Will deselect the cards
   card1Chosen = null;
   card2Chosen = null;
 }
