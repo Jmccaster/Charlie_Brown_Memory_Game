@@ -22,6 +22,11 @@ body {
   margin: 2.5px;
 }
 
+.png {
+  height: 100%;
+  width: 100%;
+}
+
 .score {
   text-decoration: underline;
 }

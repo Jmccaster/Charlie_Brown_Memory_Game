@@ -157,6 +157,6 @@ function setWinner() {
   } else if (player2Points > player1Points) {
     winner.innerHTML = "Player 2 Wins!";
   } else {
-    winner.innerHTML = "Draw";
+    winner.innerHTML = "Draw!";
   }
 }
