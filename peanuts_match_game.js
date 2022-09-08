@@ -66,7 +66,7 @@ function startGame() {
       card.id = r.toString() + "-" + c.toString();
       card.src = cardPic + ".png";
       card.classList.add("card");
-      // Create an event listener here to flip over a card by clicking on it here:
+      // Create an event listener to flip over a card by clicking on it here:
       card.addEventListener("click", chooseCard);
       document.getElementById("board").append(card);
     }
@@ -140,10 +140,23 @@ function update() {
     //flips cards back over if they are not a match.
     card1Chosen.src = "back.png";
     card2Chosen.src = "back.png";
-    // card1Chosen = null;
-    // card2Chosen = null;
   }
   // Will deselect the cards
   card1Chosen = null;
   card2Chosen = null;
+  if (player1Points + player2Points === 10) {
+    setWinner();
+  }
+}
+
+function setWinner() {
+  let winner = document.getElementById("winner");
+  if (player1Points > player2Points) {
+    console.log(player1Points);
+    winner.innerHTML = "Player 1 Wins!";
+  } else if (player2Points > player1Points) {
+    winner.innerHTML = "Player 2 Wins!";
+  } else {
+    winner.innerHTML = "Draw";
+  }
 }
