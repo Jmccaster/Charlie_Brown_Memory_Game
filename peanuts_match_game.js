@@ -1,8 +1,11 @@
 // Creating my players and setting up turn changes.
-const playerOne = "Player 1";
-const playerTwo = "Player 2";
+let playerOne = "1";
+let playerTwo = "2";
 const displayCurrPlayer = document.querySelector("#currPlayer");
 let currPlayer = playerOne;
+let player1Points = Number(
+  document.getElementById("player1Points").textContent
+);
 
 // Setting up my cards
 let cardlist = [
@@ -105,12 +108,22 @@ function chooseCard() {
 }
 
 function update() {
+  console.log(card1Chosen, card2Chosen);
   //flips cards back over if they are not a match.
   if (card1Chosen.src != card2Chosen.src) {
+    console.log("hello");
     card1Chosen.src = "back.png";
     card2Chosen.src = "back.png";
-    // player1Points += 1;
-    // document.getElementById("player1Points").innerText = player1Points;
+  }
+  if (currPlayer == playerOne && card1Chosen.src == card2Chosen.src) {
+    currPlayer = playerOne;
+    displayCurrPlayer.innerText = currPlayer;
+    player1Points += 1;
+    document.getElementById("player1Points").textContent = player1Points;
+  } else if (currPlayer == playerOne && card1Chosen.src != card2Chosen.src) {
+    console.log(currPlayer);
+    currPlayer = playerTwo;
+    displayCurrPlayer.innerText = currPlayer;
   }
   card1Chosen = null;
   card2Chosen = null;
