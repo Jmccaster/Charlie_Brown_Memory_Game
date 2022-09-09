@@ -34,6 +34,10 @@ let columns = 5;
 let card1Chosen;
 let card2Chosen;
 
+let match = new Audio("/Charlie_Brown_cheering_and_clapping.mp3");
+let noMatch = new Audio("/Charlie_Brown_Oh_Brother_Sound_Effect.mp3");
+let winningSound = new Audio("/Youre_the_Charlie_Browniest.mp3");
+
 window.onload = function () {
   shuffleCards();
   startGame();
@@ -119,6 +123,7 @@ function update() {
     displayCurrPlayer.innerText = currPlayer;
     player1Points += 1;
     document.getElementById("player1Points").textContent = player1Points;
+    match.play();
   } else if (currPlayer == playerOne && card1Chosen.src != card2Chosen.src) {
     console.log(currPlayer);
     currPlayer = playerTwo;
@@ -126,6 +131,7 @@ function update() {
     //flips cards back over if they are not a match.
     card1Chosen.src = "back.png";
     card2Chosen.src = "back.png";
+    noMatch.play();
   }
   // Player Two's turn
   else if (currPlayer == playerTwo && card1Chosen.src == card2Chosen.src) {
@@ -133,6 +139,7 @@ function update() {
     displayCurrPlayer.innerText = currPlayer;
     player2Points += 1;
     document.getElementById("player2Points").textContent = player2Points;
+    match.play();
   } else if (currPlayer == playerTwo && card1Chosen.src != card2Chosen.src) {
     console.log(currPlayer);
     currPlayer = playerOne;
@@ -140,6 +147,7 @@ function update() {
     //flips cards back over if they are not a match.
     card1Chosen.src = "back.png";
     card2Chosen.src = "back.png";
+    noMatch.play();
   }
   // Will deselect the cards
   card1Chosen = null;
@@ -154,8 +162,10 @@ function setWinner() {
   if (player1Points > player2Points) {
     console.log(player1Points);
     winner.innerHTML = "Player 1 Wins!";
+    winningSound.play();
   } else if (player2Points > player1Points) {
     winner.innerHTML = "Player 2 Wins!";
+    winningSound.play();
   } else {
     winner.innerHTML = "Draw!";
   }
