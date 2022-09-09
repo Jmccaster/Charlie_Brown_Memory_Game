@@ -37,6 +37,7 @@ let card2Chosen;
 let match = new Audio("/Charlie_Brown_cheering_and_clapping.mp3");
 let noMatch = new Audio("/Charlie_Brown_Oh_Brother_Sound_Effect.mp3");
 let winningSound = new Audio("/Youre_the_Charlie_Browniest.mp3");
+let tie = new Audio("/good_grief.mp3");
 
 window.onload = function () {
   shuffleCards();
@@ -154,6 +155,7 @@ function update() {
   card2Chosen = null;
   if (player1Points + player2Points === 10) {
     setWinner();
+    match.pause();
   }
 }
 
@@ -168,5 +170,6 @@ function setWinner() {
     winningSound.play();
   } else {
     winner.innerHTML = "Draw!";
+    tie.play();
   }
 }
