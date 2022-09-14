@@ -40,16 +40,6 @@ let winningSound = new Audio("/Youre_the_Charlie_Browniest.mp3");
 let tie = new Audio("/good_grief.mp3");
 let themeSong = new Audio("/Peanuts_Theme_Song.mp3");
 
-let playMusic = document.querySelector(".pMusic");
-playMusic.addEventListener("click", () => {
-  themeSong.play();
-});
-
-let stopMusic = document.querySelector(".sMusic");
-stopMusic.addEventListener("click", () => {
-  themeSong.pause();
-});
-
 window.onload = function () {
   shuffleCards();
   startGame();
@@ -184,3 +174,13 @@ function setWinner() {
     tie.play();
   }
 }
+
+let playMusic = document.querySelector(".pMusic");
+playMusic.addEventListener("click", () => {
+  themeSong.play();
+});
+
+let stopMusic = document.querySelector(".sMusic");
+stopMusic.addEventListener("click", () => {
+  themeSong.pause();
+});
