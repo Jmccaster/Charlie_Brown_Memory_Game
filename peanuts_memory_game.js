@@ -34,11 +34,11 @@ let columns = 5;
 let card1Chosen;
 let card2Chosen;
 
-let match = new Audio("/Charlie_Brown_cheering_and_clapping.mp3");
-let noMatch = new Audio("/Charlie_Brown_Oh_Brother_Sound_Effect.mp3");
-let winningSound = new Audio("/Youre_the_Charlie_Browniest.mp3");
-let tie = new Audio("/good_grief.mp3");
-let themeSong = new Audio("/Peanuts_Theme_Song.mp3");
+let match = new Audio("./Charlie_Brown_cheering_and_clapping.mp3");
+let noMatch = new Audio("./Charlie_Brown_Oh_Brother_Sound_Effect.mp3");
+let winningSound = new Audio("./Youre_the_Charlie_Browniest.mp3");
+let tie = new Audio("./good_grief.mp3");
+let themeSong = new Audio("./Peanuts_Theme_Song.mp3");
 
 window.onload = function () {
   shuffleCards();
